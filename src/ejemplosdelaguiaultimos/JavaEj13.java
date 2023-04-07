@@ -32,7 +32,7 @@ public class JavaEj13 {
         }
         for (int i = 0; i < tamano; i++) {
             System.out.print("*");
-        }
-    }
+        } 
+   }
 
 }
