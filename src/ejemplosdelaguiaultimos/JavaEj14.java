@@ -18,45 +18,50 @@ import java.util.Scanner;
  * @author ALVARO RIASCOS
  */
 public class JavaEj14 {
+
     public static void main(String[] args) {
         String euros;
-        
-      
+
         Scanner sc = new Scanner(System.in);
         System.out.println("CONVERTIR DE EUROS A TRES MONEDAS DIFERENTES");
         System.out.println("Digite la cantidad de euros");
         euros = sc.nextLine();
         System.out.println("A que moneda desea convertir: ");
-        System.out.println("1. Libras");
-        System.out.println("2. Dolares");
-        System.out.println("3. Yenes");
+        System.out.println("Libras");
+        System.out.println("Dolares");
+        System.out.println("Yenes");
         String opcion = sc.nextLine();
-        convertir(euros,opcion);
+        opcion = opcion.toLowerCase();
+        convertir(euros, opcion);
     }
-    public static void convertir(String euros, String opcion) {
-        int Ieuros,Iopcion;
-        double cambio;
+
+    public static void convertir(String euros, String Iopcion) {
+        int Ieuros;
+        double cambio = 0;
         Ieuros = Integer.parseInt(euros);
-        Iopcion = Integer.parseInt(opcion);
-        
+
         switch (Iopcion) {
-            case 1:
-                cambio=0.86*Ieuros;
-                System.out.println("El cambio a Libras es:  "+ cambio);
+            case "libras":
+                cambio = 0.86 * Ieuros;
+
                 break;
-            case 2:
-                cambio=1.28611*Ieuros;
-                System.out.println("El cambio a Dolares es:  "+ cambio);
+            case "dolares":
+                cambio = 1.28611 * Ieuros;
                 break;
-            case 3:
-                cambio=129.852*Ieuros;
-                System.out.println("El cambio a Yenes es:  "+ cambio);
+            case "yenes":
+                cambio = 129.852 * Ieuros;
                 break;
             default:
-                System.out.println("Opcion incorrecta");
+                System.out.println("Opción incorrecta");
+                break;
         }
-        
+        if (Iopcion.equals("libras") || Iopcion.equals("dolares") || Iopcion.equals("yenes")) {
+            System.out.println("El cambio en " + Iopcion.toUpperCase() + " es:" + cambio);
+            System.out.println("************************");
+            System.out.println("Hasta pronto =======>");
+        } else {
+            System.out.println("Hasta pronto");
+        }
     }
-   
-}
 
+}

@@ -13,6 +13,9 @@ public class JavaEj15 {
 
     public static void main(String[] args) {
 
+        llenar();
+    }
+    public static void llenar(){
         int[] vector = new int[100];
         for (int i = 0; i <= 99; i++) {
             vector[i] = i;

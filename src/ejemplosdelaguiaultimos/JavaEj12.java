@@ -23,7 +23,7 @@ public class JavaEj12 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int longitud;
+        int tamano;
         int contadorC = 0;
         int contadorI = 0;
         String cadena, cInicial, cFinal;
@@ -31,11 +31,11 @@ public class JavaEj12 {
         do {
             System.out.println("Ingrese una cadena de maximo 5 caracteres, ademas no debe estar vacio.");
             cadena = sc.nextLine();
-            longitud = cadena.length();
+            tamano = cadena.length();
 
-            while (longitud <= 5 && longitud > 1 && !cadena.equalsIgnoreCase("&&&&&")) {
+            while (tamano <= 5 && tamano > 1 && !cadena.equalsIgnoreCase("&&&&&")) {
                 cInicial = cadena.substring(0, 1);
-                cFinal = cadena.substring(longitud - 1, longitud);
+                cFinal = cadena.substring(tamano - 1, tamano);
                 if (cInicial.equalsIgnoreCase("x") && cFinal.equalsIgnoreCase("o")) {
                     contadorC++;
                 } else {
@@ -43,10 +43,10 @@ public class JavaEj12 {
                 }
                 System.out.println("ingrese otra cadena");
                 cadena = sc.nextLine();
-                longitud = cadena.length();
+                tamano = cadena.length();
             }
 
-        } while (longitud > 5 || cadena.equals(""));
+        } while (tamano > 5 || cadena.equals(""));
 
         System.out.println("==============>Saliendo");
         System.out.println("La cantidad de cadenas correctas es: " + contadorC);
