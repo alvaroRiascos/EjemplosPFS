@@ -27,32 +27,7 @@ public class JavaEj16 {
 
         System.out.print("Ingrese un numero a buscar en el vector: ");
         buscar = sc.nextInt();
-
-        for (int i = 0; i < tamano; i++) {
-
-            if (buscar == arregloOriginal[i]) {
-                contador += 1;
-                posicionNoRepetido = i + 1;
-                posicionRepetidos[i] = i;
-            }
-        }
-        if (contador == 0) {
-            System.out.println("El numero no se encuentra en el vector");
-        } else if (contador == 1) {
-            System.out.println("El numero se encuentra, y esta en la posición: " + "[ " + posicionNoRepetido + " ]");
-        } else if (contador > 1) {
-            System.out.print("El numero se encuentra repetido en las posiciones: ");
-            for (int i = 0; i < tamano; i++) {
-                if (posicionRepetidos[i] == 0) {
-                } else {
-                    System.out.print("[ " + (posicionRepetidos[i] + 1) + " ]");
-                }
-            }
-        }
-        System.out.println("");
-        for (int i = 0; i < tamano; i++) {
-            System.out.println(arregloOriginal[i] + " [" + (i + 1) + "]");
-        }
+        buscarNumero(buscar, tamano, arregloOriginal, contador, posicionNoRepetido, posicionRepetidos);
     }
 
     public static int[] llenarVector(int[] arreglo, int tamano) {
@@ -60,5 +35,35 @@ public class JavaEj16 {
             arreglo[i] = (int) (Math.random() * 100);
         }
         return arreglo;
+    }
+
+    public static void buscarNumero(int buscar, int tamano, int[] arregloOriginal, int contador, int posicionNoRepetido, int[] posicionRepetidos) {
+        for (int i = 0; i < tamano; i++) {
+            if (buscar == arregloOriginal[i]) {
+                contador += 1;
+                posicionNoRepetido = i + 1;
+                posicionRepetidos[i] = i;
+            }
+        }
+        
+        if (contador == 0) {
+            System.out.println("El numero no se encuentra en el vector");
+        } else if (contador == 1) {
+            System.out.println("El numero se encuentra, y esta en la posición: " + "[ " + posicionNoRepetido + " ]");
+        } else if (contador > 1) {
+            System.out.print("El numero se encuentra repetido en las posiciones: ");
+            
+            for (int i = 0; i < tamano; i++) {
+                if (posicionRepetidos[i] == 0) {
+                } else {
+                    System.out.print("[ " + (posicionRepetidos[i] + 1) + " ]");
+                }
+            }    
+        }
+        
+        System.out.println("");
+        for (int i = 0; i < tamano; i++) {
+            System.out.println(arregloOriginal[i] + " [" + (i + 1) + "]");
+        }
     }
 }
