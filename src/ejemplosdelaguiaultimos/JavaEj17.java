@@ -16,20 +16,40 @@ public class JavaEj17 {
         Scanner sc = new Scanner(System.in);
         int tamano;
         int numero = 0;
+
+        System.out.println("Ingrese el tamaño del arreglo");
+        tamano = sc.nextInt();
+
+        int[] arreglo = new int[tamano];
+        String[] cadena = new String[tamano];
+        int[] tamanoNumero = new int[tamano];
+
+        arreglo = llenarArreglo(arreglo, tamano, numero, sc);
+        buscarCantidadNumero(arreglo, tamano, cadena, tamanoNumero);
+
+    }
+
+    public static int[] llenarArreglo(int[] arreglo, int tamano, int numero, Scanner sc) {
+        int tamanoNumero;
+        String cadena;
+        for (int i = 0; i < tamano; i++) {
+            do {
+                System.out.println("Digite un numero de hasta 5 digitos en la posicion [ " + (i + 1) + " ]");
+                numero = sc.nextInt();
+                cadena = String.valueOf(numero);
+                tamanoNumero = cadena.length();
+            } while (tamanoNumero > 5);
+            arreglo[i] = numero;
+        }
+        return arreglo;
+    }
+
+    public static void buscarCantidadNumero(int[] arreglo, int tamano, String[] cadena, int[] tamanoNumero) {
         int digitos1 = 0;
         int digitos2 = 0;
         int digitos3 = 0;
         int digitos4 = 0;
         int digitos5 = 0;
-
-        System.out.println("Ingrese el tamaño del arreglo");
-        tamano = sc.nextInt();
-        
-        int[] arreglo = new int[tamano];
-        String[] cadena = new String[tamano];
-        int[] tamanoNumero = new int[tamano];
-        
-        arreglo = llenarArreglo(arreglo, tamano, numero, sc);
         for (int i = 0; i < tamano; i++) {
             cadena[i] = String.valueOf(arreglo[i]);
             tamanoNumero[i] = cadena[i].length();
@@ -57,20 +77,5 @@ public class JavaEj17 {
         System.out.println("La cantidad de numeros de 4 digito es: " + digitos4);
         System.out.println("La cantidad de numeros de 5 digito es: " + digitos5);
 
-    }
-
-    public static int[] llenarArreglo(int[] arreglo, int tamano, int numero, Scanner sc) {
-        int tamanoNumero;
-        String cadena;
-        for (int i = 0; i < tamano; i++) {
-            do {
-                System.out.println("Digite un numero de hasta 5 digitos en la posicion [ " + (i + 1) + " ]");
-                numero = sc.nextInt();
-                cadena = String.valueOf(numero);
-                tamanoNumero = cadena.length();
-            } while (tamanoNumero > 5);
-            arreglo[i] = numero;
-        }
-        return arreglo;
     }
 }
